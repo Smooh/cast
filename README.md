@@ -1,5 +1,5 @@
 # Smooh Cast
-Free online screen recording tool.
+Free online screen recording tool, which can be accessed [here](https://smooh.tech/cast/).
 
 ---
 
