@@ -1,4 +1,13 @@
-﻿"use strict";
+﻿//
+// Smooh Cast
+// Copyright (c) 2020 Smooh
+//
+// https://github.com/Smooh/cast
+// https://smooh.tech/cast/
+//
+// Licensed under the MIT License.
+//
+"use strict";
 
 // Change this value to force the browser to install the
 // service worker again, and recreate the cache (this technique
