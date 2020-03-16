@@ -1,0 +1,821 @@
+﻿<!DOCTYPE html>
+<!--
+	Smooh Cast
+	Copyright (c) 2020 Smooh
+
+	https://github.com/Smooh/cast
+	https://smooh.tech/cast/
+
+	Licensed under the MIT License.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" dir="ltr">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<meta property="og:locale" content="pt_BR" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://smooh.tech/cast/" />
+	<meta property="og:title" content="Smooh" />
+	<meta property="og:site_name" content="Smooh" />
+	<meta property="og:description" content="Smooh &#233; uma ferramenta para gerenciamento e distribui&#231;&#227;o de conte&#250;do digital, voltada para sinaliza&#231;&#227;o digital (media out of home) e TV corporativa, com muitas personaliza&#231;&#245;es, de f&#225;cil opera&#231;&#227;o e com um custo incrivelmente baixo." />
+	<meta property="og:image" content="https://smooh.tech/Home/OG.jpg" />
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="768">
+	<meta property="og:image:height" content="768">
+
+	<meta name="author" content="Smooh" />
+	<meta name="description" content="Smooh &#233; uma ferramenta para gerenciamento e distribui&#231;&#227;o de conte&#250;do digital, voltada para sinaliza&#231;&#227;o digital (media out of home) e TV corporativa, com muitas personaliza&#231;&#245;es, de f&#225;cil opera&#231;&#227;o e com um custo incrivelmente baixo." />
+	<meta name="keywords" content="sinalização digital, digital signage, tv corporativa, conteúdo digital, distribuição de conteúdo, quinta tela, media out of home, ooh, mooh, dashboard, chamada, fila, atendimento, senha" />
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-title" content="Smooh" />
+	<link rel="apple-touch-icon" sizes="57x57" href="https://smooh.tech/apple-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="60x60" href="https://smooh.tech/apple-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="https://smooh.tech/apple-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="https://smooh.tech/apple-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="https://smooh.tech/apple-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="https://smooh.tech/apple-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="https://smooh.tech/apple-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="https://smooh.tech/apple-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="https://smooh.tech/apple-icon-180x180.png" />
+	<link rel="icon" type="image/png" sizes="512x512" href="https://smooh.tech/android-icon-512x512.png" />
+	<link rel="icon" type="image/png" sizes="192x192" href="https://smooh.tech/android-icon-192x192.png" />
+	<link rel="icon" type="image/png" sizes="96x96" href="https://smooh.tech/android-icon-96x96.png" />
+	<link rel="icon" type="image/png" sizes="48x48" href="https://smooh.tech/android-icon-48x48.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="https://smooh.tech/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="https://smooh.tech/favicon-16x16.png" />
+	<link rel="Shortcut Icon" href="https://smooh.tech/favicon.ico" />
+	<link rel="Shortcut Icon" href="https://smooh.tech/favicon.png" />
+	<link rel="manifest" href="https://smooh.tech/cast/manifest.json" />
+	<meta name="msapplication-config" content="https://smooh.tech/browserconfig.xml" />
+	<meta name="theme-color" content="#222222" />
+
+	<title>Smooh Cast</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet" type="text/css" />
+	<link href="https://smooh.tech/Styles/font-awesome-1.0.2.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://smooh.tech/Styles/bootstrap-1.0.22.min.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		html {
+			min-height: 100%;
+			height: 100%;
+		}
+
+		body {
+			background-image: url(https://smooh.tech/Home/BannerBlur.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-attachment: fixed;
+			min-height: 100%;
+		}
+
+		main {
+			max-width: 400px;
+			margin: 0 auto;
+			padding: 15px 15px 0;
+		}
+
+		hr {
+			border-color: #ccc;
+		}
+
+		.panel {
+			background-color: rgba(255,255,255,0.85);
+			-webkit-box-shadow: 0 2px 8px rgba(0,0,0,.5);
+			box-shadow: 0 2px 8px rgba(0,0,0,.5);
+		}
+
+		.btn {
+			white-space: normal;
+		}
+
+		.form-control {
+			-webkit-box-shadow: 0 1px 0 #bbb;
+			box-shadow: 0 1px 0 #bbb;
+		}
+
+		h1 {
+			margin: 0;
+		}
+
+		i.fa {
+			margin-right: 0.5em;
+		}
+
+		.badge {
+			background: #ccc;
+			color: #444;
+			cursor: default;
+		}
+
+		#imgLogo {
+			display: block;
+			margin: 0 auto 0.5em;
+			width: 100%;
+			max-width: 400px;
+		}
+
+		#divBar {
+			margin: 0 0 15px;
+		}
+
+		#btnPrivacy {
+			float: right;
+		}
+
+		#divPip {
+			height: 0;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+
+	<main>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h1 class="text-right">
+					<img id="imgLogo" alt="Smooh" src="https://smooh.tech/Home/LogoIconeLetras100_.png" />
+					Cast
+				</h1>
+			</div>
+		</div>
+
+		<div id="divDownload" class="panel panel-default" style="display: none;">
+			<div class="panel-body">
+				<div class="form-group">
+					<label for="txtDownload">Nome da Gravação</label>
+					<input id="txtDownload" type="text" class="form-control" spellcheck="false" placeholder="Opcional" />
+				</div>
+				<a id="aDownload" class="btn btn-outline btn-primary btn-block"><i class="fa fa-download"></i>Baixar Gravação</a>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div id="divBar" class="clearfix">
+					<button id="btnPip" type="button" class="btn btn-xs btn-outline btn-primary" onclick="togglePip();" style="display: none;"><i id="iconPip" class="fa fa-square-o"></i>Exibir minha câmera</button>
+					<button id="btnPrivacy" type="button" class="btn btn-xs btn-outline btn-default" data-toggle="tooltip" data-placement="left" title="Sua privacidade é muito importante para nós! As informações de áudio e vídeo gravadas aqui ficam somente em seu dispositivo, e jamais são enviadas para nós!"><i class="fa fa-lock"></i>Privacidade</button>
+				</div>
+				<hr />
+				<div id="divStart">
+					<div class="form-group">
+						<label for="cbQuality"><i class="fa fa-th"></i>Qualidade da Gravação</label>
+						<select id="cbQuality" size="1" class="form-control">
+							<option value="20000000">Alta</option>
+							<option value="12000000" selected="selected">Boa</option>
+							<option value="500000">Baixa</option>
+						</select>
+					</div>
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group">
+								<label for="cbAudio"><i class="fa fa-microphone"></i>Áudio</label>
+								<select id="cbAudio" size="1" class="form-control">
+									<option value="">Nenhum</option>
+									<option value="true" selected="selected">Microfone Padrão</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<label for="cbVideo"><i class="fa fa-video-camera"></i>Vídeo</label>
+								<select id="cbVideo" size="1" class="form-control">
+									<option value="" selected="selected">Tela</option>
+									<option value="true">Câmera Padrão</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<button id="btnUpdateDevices" type="button" class="btn btn-outline btn-primary btn-xs btn-block" onclick="updateDevices(true);" style="display: none;"><i class="fa fa-refresh"></i>Atualizar Lista de Dispositivos</button>
+					<hr />
+					<button type="button" class="btn btn-primary btn-block" onclick="startRecording(false);"><i class="fa fa-play"></i>Iniciar Gravação</button>
+				</div>
+				<button id="btnStop" type="button" class="btn btn-danger btn-block" onclick="stopRecording();" style="display: none;"><i class="fa fa-stop"></i>Parar Gravação</button>
+				<div id="divPip">
+					<video id="videoPip" controls autoplay tabindex="-1" style="height: 400px;"></video>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<div id="modalConfirmDiscard" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Oops&hellip;</h4>
+				</div>
+				<div class="modal-body text-center">
+					<b>Iniciar uma nova gravação irá descartar a gravação atual.</b>
+					<br />
+					<br />
+					Deseja descartar a gravação atual?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" onclick="startRecording(true)"><i class="fa fa-check"></i>Descartar</button>
+					<button type="button" class="btn btn-default btn-outline" data-dismiss="modal"><i class="fa fa-times"></i>Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="modalPipList" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Escolher Dispositivo</h4>
+				</div>
+				<div class="modal-body" id="modalPipListBody"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-outline" data-dismiss="modal"><i class="fa fa-times"></i>Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" charset="utf-8" src="https://smooh.tech/Scripts/jquery-1.0.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="https://smooh.tech/Scripts/bootstrap-1.0.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="https://smooh.tech/cast/ts-ebml.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="https://smooh.tech/Scripts/main.js"></script>
+
+	<!--
+		References:
+		
+		https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
+		https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder
+		https://github.com/webrtc/
+		https://webrtc.github.io/samples/
+		https://github.com/legokichi/ts-ebml
+	-->
+	<script type="text/javascript">
+		//<![CDATA[
+		"use strict";
+
+		$("#btnPrivacy").tooltip();
+
+		if (("serviceWorker" in navigator))
+			navigator.serviceWorker.register("/cast/sw.js");
+
+		var ebml = require("ts-ebml"),
+			cfgQuality = "smooh-cast-quality",
+			cfgAudio = "smooh-cast-audio-source",
+			cfgVideo = "smooh-cast-video-source",
+			divStart = document.getElementById("divStart"),
+			btnPip = document.getElementById("btnPip"),
+			iconPip = document.getElementById("iconPip"),
+			cbQuality = document.getElementById("cbQuality"),
+			cbAudio = document.getElementById("cbAudio"),
+			cbVideo = document.getElementById("cbVideo"),
+			btnStop = document.getElementById("btnStop"),
+			divDownload = document.getElementById("divDownload"),
+			txtDownload = document.getElementById("txtDownload"),
+			aDownload = document.getElementById("aDownload"),
+			videoPip = document.getElementById("videoPip"),
+			modalPipList = document.getElementById("modalPipList"),
+			modalPipListBody = document.getElementById("modalPipListBody"),
+			fileName = null,
+			fileMime = null,
+			waiting = false,
+			capturing = false,
+			audioStream = null,
+			videoStream = null,
+			mixedStream = null,
+			mediaRecorder = null,
+			blobs = null,
+			blobUrl = null,
+			pipUrl = null,
+			pipStream = null,
+			pipVisible = false;
+
+		function checkSupport() {
+			if (!BlobDownloader.supported || !("MediaRecorder" in window)) {
+				BlobDownloader.alertNotSupported();
+				return false;
+			}
+
+			return true;
+		}
+
+		function startRecording(discardCurrent) {
+			if (waiting || capturing || !checkSupport())
+				return;
+
+			if (discardCurrent) {
+				$("#modalConfirmDiscard").modal("hide");
+			} else if (blobUrl) {
+				$("#modalConfirmDiscard").modal({
+					backdrop: "static",
+					keyboard: true
+				});
+				return;
+			}
+
+			var now = new Date(), audioNeeded = !!cbAudio.value, videoIsDisplay = !cbVideo.value,
+				audioObj = (audioNeeded ? ((cbAudio.value === "true") ? true : {deviceId: {exact: cbAudio.value}}) : false),
+				videoObj = (videoIsDisplay ? false : ((cbVideo.value === "true") ? true : {deviceId: {exact: cbVideo.value}}));
+
+			localStorage.setItem(cfgQuality, cbQuality.value);
+			localStorage.setItem(cfgAudio, cbAudio.value);
+			localStorage.setItem(cfgVideo, cbVideo.value);
+
+			fileName = "Gravacao " + now.getFullYear() + "-" + format2(now.getMonth() + 1) + "-" + format2(now.getDate()) + " " + format2(now.getHours()) + format2(now.getMinutes());
+
+			Notification.wait();
+
+			waiting = true;
+			capturing = true;
+			audioStream = null;
+			videoStream = null;
+			mixedStream = null;
+
+			function getVideoStream() {
+				var promise = (videoIsDisplay ? (navigator.getDisplayMedia ?
+					navigator.getDisplayMedia({ video: true, audio: false }) :
+					(navigator.mediaDevices.getDisplayMedia ?
+						navigator.mediaDevices.getDisplayMedia({ video: true, audio: false }) :
+						navigator.mediaDevices.getUserMedia({ video: { mediaSource: "screen" }, audio: false }))) :
+					(navigator.mediaDevices ? navigator.mediaDevices.getUserMedia({ video: videoObj, audio: audioObj }) :
+						navigator.getUserMedia({ video: videoObj, audio: audioObj })));
+
+				promise.then(function (stream) {
+					Notification.hide();
+
+					waiting = false;
+
+					divStart.style.display = "none";
+					divDownload.style.display = "none";
+					btnStop.style.display = "";
+
+					if (blobUrl) {
+						URL.revokeObjectURL(blobUrl);
+						blobUrl = null;
+					}
+					blobs = null;
+
+					videoStream = stream;
+
+					videoStream.oninactive = function () {
+						stopRecording();
+					};
+
+					if (audioStream) {
+						try {
+							var tracks = [];
+							Array.prototype.push.apply(tracks, audioStream.getTracks());
+							Array.prototype.push.apply(tracks, videoStream.getTracks());
+							mixedStream = new MediaStream(tracks);
+						} catch (e) {
+							stopRecording();
+							Notification.error("Não foi possível combinar as capturas " + emoji.sad, true);
+							return;
+						}
+					} else {
+						mixedStream = videoStream;
+					}
+
+					var i, audioBps = 0, videoBps = parseInt(cbQuality.value), mimes = [
+						"video/webm;codecs=vp8",
+						"video/webm;codecs=vp9",
+						"video/mp4;codecs=h264",
+						//"video/webm;codecs=h264", // Does not produce nice results even when available
+						"video/mp4",
+						"video/webm"
+					];
+
+					if (isNaN(videoBps) || videoBps < 500000 || videoBps > 20000000)
+						videoBps = 12000000;
+					audioBps = (audioNeeded ? (videoBps < 20000000 ? 64000 : 128000) : 0);
+
+					for (i = 0; i < mimes.length; i++) {
+						fileMime = mimes[i];
+						if (!MediaRecorder.isTypeSupported(fileMime))
+							continue;
+						try {
+							mediaRecorder = new MediaRecorder(mixedStream, { mimeType: fileMime, audioBitsPerSecond: audioBps, videoBitsPerSecond: videoBps });
+							break;
+						} catch (e) {
+							// Just ignore...
+						}
+					}
+
+					if (!mediaRecorder) {
+						for (i = 0; i < mimes.length; i++) {
+							fileMime = mimes[i];
+							if (!MediaRecorder.isTypeSupported(fileMime))
+								continue;
+							try {
+								mediaRecorder = new MediaRecorder(mixedStream, { mimeType: fileMime });
+								break;
+							} catch (e) {
+								// Just ignore...
+							}
+						}
+					}
+
+					if (!mediaRecorder) {
+						stopRecording();
+						Notification.error("Não foi possível iniciar a gravação de tela por falta de Codecs compatíveis " + emoji.sad, true);
+						return;
+					}
+
+					try {
+						blobs = [];
+						mediaRecorder.ondataavailable = function (e) {
+							if (e && e.data && e.data.size > 0 && blobs)
+								blobs.push(e.data);
+						};
+						mediaRecorder.start(360000);
+					} catch (e) {
+						blobs = null;
+						stopRecording();
+						Notification.error("Não foi possível iniciar a gravação de tela: " + (e.message || e.toString()) + " " + emoji.sad, true);
+						return;
+					}
+				}).catch(function () {
+					waiting = false;
+					stopRecording();
+					Notification.error("Não foi possível iniciar a captura de tela " + emoji.sad, true);
+				});
+			}
+
+			if (audioNeeded && videoIsDisplay) {
+				var promise = (navigator.mediaDevices ? navigator.mediaDevices.getUserMedia({ video: false, audio: audioObj }) :
+						navigator.getUserMedia({ video: false, audio: audioObj }));
+
+				promise.then(function (stream) {
+					audioStream = stream;
+
+					audioStream.oninactive = function () {
+						stopRecording();
+					};
+
+					getVideoStream();
+				}).catch(function () {
+					waiting = false;
+					stopRecording();
+					Notification.error("Não foi possível iniciar a captura do microfone " + emoji.sad, true);
+				});
+			} else {
+				getVideoStream();
+			}
+		}
+
+		function cleanupStream(stream) {
+			if (stream) {
+				try {
+					if (stream.stop)
+						stream.stop();
+				} catch (e) {
+					// Just ignore...
+				}
+				try {
+					var i, tracks = stream.getTracks();
+					for (i = 0; i < tracks.length; i++) {
+						try {
+							if (tracks[i] && tracks[i].stop)
+								tracks[i].stop();
+						} catch (e) {
+							// Just ignore...
+						}
+					}
+				} catch (e) {
+					// Just ignore...
+				}
+			}
+		}
+
+		function cleanupStreams() {
+			var cleanupMixedStream = (videoStream !== mixedStream);
+
+			cleanupStream(audioStream);
+			audioStream = null;
+
+			cleanupStream(videoStream);
+			videoStream = null;
+
+			if (cleanupMixedStream)
+				cleanupStream(mixedStream);
+			mixedStream = null;
+		}
+
+		function finishRecording() {
+			Notification.hide();
+
+			waiting = false;
+
+			blobUrl = URL.createObjectURL(new Blob(blobs, { type: fileMime }));
+			aDownload.setAttribute("href", blobUrl);
+			updateDownloadName();
+			divDownload.style.display = "";
+
+			blobs = null;
+		}
+
+		function prepareWebM() {
+			var fileReader = new FileReader();
+			fileReader.onloadend = function () {
+				try {
+					var arrayBuffer = fileReader.result,
+						decoder = new ebml.Decoder(),
+						reader = new ebml.Reader(),
+						i, parts, correctMetadata, webMBody;
+
+					reader.logging = false;
+					reader.drop_default_duration = false;
+
+					parts = decoder.decode(arrayBuffer);
+					for (i = 0; i < parts.length; i++)
+						reader.read(parts[i]);
+					reader.stop();
+
+					correctMetadata = ebml.tools.makeMetadataSeekable(reader.metadatas, reader.duration, reader.cues);
+					webMBody = arrayBuffer.slice(reader.metadataSize);
+
+					blobs = [new Blob([correctMetadata, webMBody], { type: fileMime })];
+				} catch (e) {
+					// Just ignore...
+				}
+
+				finishRecording();
+			};
+			fileReader.onerror = function (ev) {
+				finishRecording();
+			};
+			fileReader.readAsArrayBuffer(new Blob(blobs, { type: fileMime }));
+		}
+
+		function stopRecording() {
+			if (waiting || !capturing)
+				return;
+
+			capturing = false;
+
+			btnStop.style.display = "none";
+			divStart.style.display = "";
+
+			if (mediaRecorder) {
+				try {
+					mediaRecorder.stop();
+				} catch (e) {
+					// Just ignore...
+				}
+				mediaRecorder = null;
+			}
+
+			if (blobs && mixedStream) {
+				// Wait for the mediaRecorder to fully stop and send the last blob before cleaning up
+
+				Notification.wait();
+
+				waiting = true;
+
+				setTimeout(function () {
+					cleanupStreams();
+
+					var i = fileMime.indexOf(";");
+					if (i >= 0)
+						fileMime = fileMime.substr(0, i);
+
+					if (fileMime === "video/webm")
+						prepareWebM();
+					else
+						finishRecording();
+				}, 2000);
+			} else {
+				cleanupStreams();
+
+				blobs = null;
+			}
+		}
+
+		function updateDownloadName() {
+			aDownload.setAttribute("download", (trim(txtDownload.value) || fileName) + ((fileMime === "video/mp4") ? ".mp4" : ".webm"));
+		}
+
+		function cleanupPip() {
+			pipVisible = false;
+			iconPip.className = "fa fa-square-o";
+
+			try {
+				if (document.pictureInPictureElement)
+					document.exitPictureInPicture();
+			} catch (e) {
+				// Just ignore...
+			}
+
+			try {
+				if (videoPip.pause)
+					videoPip.pause();
+			} catch (e) {
+				// Just ignore...
+			}
+
+			if ("srcObject" in videoPip)
+				videoPip.srcObject = null;
+			else if ("mozSrcObject" in videoPip)
+				videoPip.mozSrcObject = null;
+			else
+				videoPip.src = null;
+
+			if (pipUrl) {
+				URL.revokeObjectURL(pipUrl);
+				pipUrl = null;
+			}
+
+			cleanupStream(pipStream);
+			pipStream = null;
+		}
+
+		function startPip(videoObj) {
+			Notification.wait();
+
+			waiting = true;
+
+			var promise = (navigator.mediaDevices ? navigator.mediaDevices.getUserMedia({ video: videoObj, audio: false }) :
+					navigator.getUserMedia({ video: videoObj, audio: false }));
+
+			promise.then(function (stream) {
+				try {
+					pipStream = stream;
+
+					pipStream.oninactive = function () {
+						cleanupPip();
+					};
+
+					if ("srcObject" in videoPip) {
+						videoPip.srcObject = pipStream;
+					} else if ("mozSrcObject" in preview) {
+						videoPip.mozSrcObject = pipStream;
+					} else {
+						pipUrl = URL.createObjectURL(pipStream);
+						videoPip.src = pipUrl;
+					}
+
+					videoPip.play();
+				} catch (e) {
+					cleanupPip();
+					Notification.error("Não foi possível exibir sua câmera " + emoji.sad, true);
+				}
+			}).catch(function () {
+				waiting = false;
+				cleanupPip();
+				Notification.error("Não foi possível exibir sua câmera " + emoji.sad, true);
+			});
+		}
+
+		function startPipFromButton() {
+			if (waiting)
+				return;
+
+			$("#modalPipList").modal("hide");
+
+			var deviceId = this.getAttribute("data-value");
+			startPip((!deviceId || deviceId === "true") ? true : {deviceId: {exact: deviceId}});
+		}
+
+		function togglePip() {
+			if (waiting || !checkSupport())
+				return;
+
+			if (pipVisible) {
+				cleanupPip();
+			} else if (cbVideo.children.length <= 3) {
+				startPip(true);
+			} else {
+				while (modalPipListBody.firstChild)
+					modalPipListBody.removeChild(modalPipListBody.firstChild);
+
+				var i, o, button, icon;
+
+				for (i = 1; i < cbVideo.children.length; i++) {
+					o = cbVideo.children[i];
+					button = document.createElement("button");
+					button.setAttribute("type", "button");
+					button.className = "btn btn-primary btn-outline btn-block";
+					button.onclick = startPipFromButton;
+					button.setAttribute("data-value", o.value);
+					icon = document.createElement("i");
+					icon.className = "fa fa-video-camera";
+					button.appendChild(icon);
+					button.appendChild(document.createTextNode(o.textContent));
+					modalPipListBody.appendChild(button);
+				}
+
+				$("#modalPipList").modal({
+					backdrop: "static",
+					keyboard: true
+				});
+			}
+		}
+
+		function updateDevices(forceGetUserMedia) {
+			if (waiting || capturing || !checkSupport())
+				return;
+
+			Notification.wait();
+
+			waiting = true;
+
+			function enumerateDevices() {
+				navigator.mediaDevices.enumerateDevices().then(function (devices) {
+					Notification.hide();
+
+					waiting = false;
+
+					var i, oldAudio = (!forceGetUserMedia ? localStorage.getItem(cfgAudio) : cbAudio.value),
+						oldVideo = (!forceGetUserMedia ? localStorage.getItem(cfgVideo) : cbVideo.value);
+
+					while (cbAudio.children.length > 2)
+						cbAudio.removeChild(cbAudio.lastChild);
+
+					while (cbVideo.children.length > 2)
+						cbVideo.removeChild(cbVideo.lastChild);
+
+					for (i = 0; i < devices.length; i++) {
+						var device = devices[i], o;
+							switch (device.kind) {
+								case "audioinput":
+								case "videoinput":
+									if (device.label) {
+										o = document.createElement("option");
+										o.value = device.deviceId;
+										o.textContent = device.label;
+										((device.kind == "audioinput") ? cbAudio : cbVideo).appendChild(o);
+									}
+									break;
+						}
+					}
+
+					cbAudio.value = oldAudio;
+					cbVideo.value = oldVideo;
+
+					if (!cbAudio.value && oldAudio)
+						cbAudio.value = "true";
+					if (!cbVideo.value && oldVideo)
+						cbVideo.value = "";
+				}).catch(function () {
+					Notification.hide();
+
+					waiting = false;
+				});
+			}
+
+			if (forceGetUserMedia) {
+				var promise = (navigator.mediaDevices ? navigator.mediaDevices.getUserMedia({ video: true, audio: true }) :
+						navigator.getUserMedia({ video: true, audio: true }));
+
+				promise.then(function (stream) {
+					cleanupStream(stream);
+					enumerateDevices();
+				}).catch(function () {
+					enumerateDevices();
+				});
+			} else {
+				enumerateDevices();
+			}
+		}
+
+		txtDownload.onchange = updateDownloadName;
+
+		if (document.pictureInPictureEnabled && ("requestPictureInPicture" in videoPip)) {
+			btnPip.style.display = "";
+			videoPip.onloadeddata = function () {
+				setTimeout(function () {
+					Notification.hide();
+
+					waiting = false;
+
+					pipVisible = true;
+					iconPip.className = "fa fa-check-square";
+
+					videoPip.requestPictureInPicture();
+				}, 250);
+			};
+			videoPip.onleavepictureinpicture = function () {
+				cleanupPip();
+			};
+			videoPip.onerror = function () {
+				waiting = false;
+				cleanupPip();
+				Notification.error("Ocorreu um erro durante a exibição de sua câmera " + emoji.sad, true);
+			};
+		}
+
+		if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
+			document.getElementById("btnUpdateDevices").style.display = "";
+			updateDevices(false);
+		}
+
+		if (("localStorage" in window))
+			cbQuality.value = (localStorage.getItem(cfgQuality) || "12000000");
+
+		//]]>
+	</script>
+</body>
+</html>
