@@ -211,7 +211,7 @@
 						<div class="col-sm-6">
 							<div class="form-group no-margin-bottom">
 								<label class="hidden-xs">&nbsp;</label>
-								<button type="button" class="btn btn-primary btn-block" onclick="startRecording(false);"><i class="fa fa-play"></i>Gravar!</button>
+								<button type="button" class="btn btn-primary btn-block" onclick="startRecording(false);"><i class="fa fa-circle"></i>Gravar!</button>
 							</div>
 						</div>
 					</div>
@@ -457,8 +457,6 @@
 					function doStart() {
 						Notification.hide();
 
-						waiting = false;
-
 						document.title = "Gravando…";
 
 						try {
@@ -488,6 +486,8 @@
 					} else {
 						document.title = (delaySeconds--) + "…";
 						delayInterval = setInterval(function () {
+							if (!delayInterval)
+								return;
 							if (delaySeconds <= 0) {
 								clearInterval(delayInterval);
 								delayInterval = 0;
@@ -624,6 +624,7 @@
 			}
 
 			if (delayInterval) {
+				Notification.hide();
 				clearInterval(delayInterval);
 				delayInterval = 0;
 			}
