@@ -1,6 +1,8 @@
 # Smooh Cast
 Smooh Cast is a free online screen recording tool, capable of showing your camera along with the recording as picture-in-picture (pip) on browsers that support it.
 
+If the browser supports PWA, it is also possible to install Smooh Cast and use it offline.
+
 The tool can be accessed [here](https://smooh.tech/cast/).
 
 ---
