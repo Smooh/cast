@@ -27,7 +27,7 @@
 
 	<meta name="author" content="Smooh" />
 	<meta name="description" content="Smooh is a digital content management and distribution tool focused on media out of home and corporate TV, with many customizations, easy operation and incredibly low cost." />
-	<meta name="keywords" content="digital signage, corporate tv, digital content, content distribution, fifth screen, media out of home, ooh, mooh, dashboard, attendance, queue, presence, call, ticket, recording, screen, screen recording, free" />
+	<meta name="keywords" content="digital signage, corporate tv, digital content, content distribution, fifth screen, media out of home, ooh, mooh, dashboard, attendance, queue, presence, call, ticket, recording, screen, screen recording, free, picture-in-picture" />
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -155,7 +155,7 @@
 					<a id="aGit" href="https://github.com/Smooh/cast" target="_blank"><i class="fa custom-icon"></i>GitHub</a>
 					Cast <small>(Beta)</small>
 					<span class="sr-only">Free online screen recording tool.</span>
-					<span class="sr-only">Display your camera as picture in picture (pip).</span>
+					<span class="sr-only">Display your camera as picture-in-picture (pip).</span>
 				</h1>
 			</div>
 		</div>
@@ -333,6 +333,18 @@
 			pipStream = null,
 			pipVisible = false;
 
+		txtDownload.onkeyup = function (e) {
+			if (e.keyCode === 13)
+				aDownload.click();
+			return true;
+		};
+
+		txtDelay.onkeyup = function (e) {
+			if (e.keyCode === 13)
+				startRecording(false);
+			return true;
+		};
+
 		function checkSupport() {
 			if (!BlobDownloader.supported || !("MediaRecorder" in window)) {
 				BlobDownloader.alertNotSupported();
@@ -419,14 +431,21 @@
 						mixedStream = videoStream;
 					}
 
-					var i, audioBps = 0, videoBps = parseInt(cbQuality.value), mimes = [
+					var i, audioBps = 0, videoBps = parseInt(cbQuality.value), mimes = (audioNeeded ? [
+						"video/webm;codecs=vp8,opus",
+						"video/webm;codecs=vp9,opus",
+						"video/mp4;codecs=h264,aac",
+						//"video/webm;codecs=h264,aac", // Does not produce nice results even when available
+						"video/mp4",
+						"video/webm"
+					] : [
 						"video/webm;codecs=vp8",
 						"video/webm;codecs=vp9",
 						"video/mp4;codecs=h264",
 						//"video/webm;codecs=h264", // Does not produce nice results even when available
 						"video/mp4",
 						"video/webm"
-					];
+					]);
 
 					if (isNaN(videoBps) || videoBps < 500000 || videoBps > 20000000)
 						videoBps = 12000000;

@@ -27,7 +27,7 @@
 
 	<meta name="author" content="Smooh" />
 	<meta name="description" content="Smooh &#233; uma ferramenta para gerenciamento e distribui&#231;&#227;o de conte&#250;do digital, voltada para sinaliza&#231;&#227;o digital (media out of home) e TV corporativa, com muitas personaliza&#231;&#245;es, de f&#225;cil opera&#231;&#227;o e com um custo incrivelmente baixo." />
-	<meta name="keywords" content="sinalização digital, digital signage, tv corporativa, conteúdo digital, distribuição de conteúdo, quinta tela, media out of home, ooh, mooh, dashboard, chamada, fila, atendimento, senha, gravação, tela, gravação de tela, grátis, gratuita" />
+	<meta name="keywords" content="sinalização digital, digital signage, tv corporativa, conteúdo digital, distribuição de conteúdo, quinta tela, media out of home, ooh, mooh, dashboard, chamada, fila, atendimento, senha, gravação, tela, gravação de tela, grátis, gratuita, picture-in-picture" />
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -155,7 +155,7 @@
 					<a id="aGit" href="https://github.com/Smooh/cast" target="_blank"><i class="fa custom-icon"></i>GitHub</a>
 					Cast <small>(Beta)</small>
 					<span class="sr-only">Ferramenta online gratuita de gravação de tela.</span>
-					<span class="sr-only">Mostre sua câmera no canto da tela como picture in picture (pip).</span>
+					<span class="sr-only">Mostre sua câmera no canto da tela como picture-in-picture (pip).</span>
 				</h1>
 			</div>
 		</div>
@@ -333,6 +333,18 @@
 			pipStream = null,
 			pipVisible = false;
 
+		txtDownload.onkeyup = function (e) {
+			if (e.keyCode === 13)
+				aDownload.click();
+			return true;
+		};
+
+		txtDelay.onkeyup = function (e) {
+			if (e.keyCode === 13)
+				startRecording(false);
+			return true;
+		};
+
 		function checkSupport() {
 			if (!BlobDownloader.supported || !("MediaRecorder" in window)) {
 				BlobDownloader.alertNotSupported();
@@ -419,14 +431,21 @@
 						mixedStream = videoStream;
 					}
 
-					var i, audioBps = 0, videoBps = parseInt(cbQuality.value), mimes = [
+					var i, audioBps = 0, videoBps = parseInt(cbQuality.value), mimes = (audioNeeded ? [
+						"video/webm;codecs=vp8,opus",
+						"video/webm;codecs=vp9,opus",
+						"video/mp4;codecs=h264,aac",
+						//"video/webm;codecs=h264,aac", // Does not produce nice results even when available
+						"video/mp4",
+						"video/webm"
+					] : [
 						"video/webm;codecs=vp8",
 						"video/webm;codecs=vp9",
 						"video/mp4;codecs=h264",
 						//"video/webm;codecs=h264", // Does not produce nice results even when available
 						"video/mp4",
 						"video/webm"
-					];
+					]);
 
 					if (isNaN(videoBps) || videoBps < 500000 || videoBps > 20000000)
 						videoBps = 12000000;
