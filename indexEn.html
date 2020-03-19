@@ -8,26 +8,26 @@
 
 	Licensed under the MIT License.
 -->
-<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" dir="ltr">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" dir="ltr">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<meta property="og:locale" content="pt_BR" />
+	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://smooh.tech/cast/" />
+	<meta property="og:url" content="https://smooh.tech/" />
 	<meta property="og:title" content="Smooh" />
 	<meta property="og:site_name" content="Smooh" />
-	<meta property="og:description" content="Smooh &#233; uma ferramenta para gerenciamento e distribui&#231;&#227;o de conte&#250;do digital, voltada para sinaliza&#231;&#227;o digital (media out of home) e TV corporativa, com muitas personaliza&#231;&#245;es, de f&#225;cil opera&#231;&#227;o e com um custo incrivelmente baixo." />
+	<meta property="og:description" content="Smooh is a digital content management and distribution tool focused on media out of home and corporate TV, with many customizations, easy operation and incredibly low cost." />
 	<meta property="og:image" content="https://smooh.tech/Home/OG.jpg" />
 	<meta property="og:image:type" content="image/jpeg">
 	<meta property="og:image:width" content="768">
 	<meta property="og:image:height" content="768">
 
 	<meta name="author" content="Smooh" />
-	<meta name="description" content="Smooh &#233; uma ferramenta para gerenciamento e distribui&#231;&#227;o de conte&#250;do digital, voltada para sinaliza&#231;&#227;o digital (media out of home) e TV corporativa, com muitas personaliza&#231;&#245;es, de f&#225;cil opera&#231;&#227;o e com um custo incrivelmente baixo." />
-	<meta name="keywords" content="sinalização digital, digital signage, tv corporativa, conteúdo digital, distribuição de conteúdo, quinta tela, media out of home, ooh, mooh, dashboard, chamada, fila, atendimento, senha, gravação, tela, gravação de tela, grátis, gratuita" />
+	<meta name="description" content="Smooh is a digital content management and distribution tool focused on media out of home and corporate TV, with many customizations, easy operation and incredibly low cost." />
+	<meta name="keywords" content="digital signage, corporate tv, digital content, content distribution, fifth screen, media out of home, ooh, mooh, dashboard, attendance, queue, presence, call, ticket, recording, screen, screen recording, free" />
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -154,8 +154,8 @@
 					<a id="aLogo" href="https://smooh.tech" target="_blank"><img id="imgLogo" alt="Smooh" src="https://smooh.tech/Home/LogoIconeLetras100_.png" /></a>
 					<a id="aGit" href="https://github.com/Smooh/cast" target="_blank"><i class="fa custom-icon"></i>GitHub</a>
 					Cast <small>(Beta)</small>
-					<span class="sr-only">Ferramenta online gratuita de gravação de tela.</span>
-					<span class="sr-only">Mostre sua câmera no canto da tela como picture in picture (pip).</span>
+					<span class="sr-only">Free online screen recording tool.</span>
+					<span class="sr-only">Display your camera as picture in picture (pip).</span>
 				</h1>
 			</div>
 		</div>
@@ -163,69 +163,69 @@
 		<div id="divDownload" class="panel panel-default" style="display: none;">
 			<div class="panel-body">
 				<div class="form-group">
-					<label for="txtDownload">Nome da Gravação</label>
-					<input id="txtDownload" type="text" class="form-control" spellcheck="false" placeholder="Opcional" />
+					<label for="txtDownload">Recording Name</label>
+					<input id="txtDownload" type="text" class="form-control" spellcheck="false" placeholder="Optional" />
 				</div>
-				<a id="aDownload" class="btn btn-outline btn-primary btn-block"><i class="fa fa-download"></i>Baixar Gravação</a>
+				<a id="aDownload" class="btn btn-outline btn-primary btn-block"><i class="fa fa-download"></i>Download Recording</a>
 			</div>
 		</div>
 
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div id="divBar" class="clearfix">
-					<button id="btnPip" type="button" class="btn btn-xs btn-outline btn-primary" onclick="togglePip();" style="display: none;"><i id="iconPip" class="fa fa-square-o"></i>Exibir minha câmera</button>
-					<button id="btnPrivacy" type="button" class="btn btn-xs btn-outline btn-default" data-toggle="tooltip" data-placement="left" title="Sua privacidade é muito importante para nós! As informações de áudio e vídeo gravadas aqui ficam somente em seu dispositivo, e jamais são enviadas para nós!"><i class="fa fa-lock"></i>Privacidade</button>
+					<button id="btnPip" type="button" class="btn btn-xs btn-outline btn-primary" onclick="togglePip();" style="display: none;"><i id="iconPip" class="fa fa-square-o"></i>Show my camera</button>
+					<button id="btnPrivacy" type="button" class="btn btn-xs btn-outline btn-default" data-toggle="tooltip" data-placement="left" title="Your privacy is very important to us! The audio and video information recorded here is stored only on your device, and is never sent to us!"><i class="fa fa-lock"></i>Privacy</button>
 				</div>
 				<hr />
 				<div id="divStart">
 					<div class="form-group">
-						<label for="cbQuality"><i class="fa fa-th"></i>Qualidade da Gravação</label>
+						<label for="cbQuality"><i class="fa fa-th"></i>Recording Quality</label>
 						<select id="cbQuality" size="1" class="form-control">
-							<option value="20000000">Alta</option>
-							<option value="12000000" selected="selected">Boa</option>
-							<option value="500000">Baixa</option>
+							<option value="20000000">High</option>
+							<option value="12000000" selected="selected">Good</option>
+							<option value="500000">Low</option>
 						</select>
 					</div>
 					<div class="row">
 						<div class="col-xs-6">
 							<div class="form-group">
-								<label for="cbAudio"><i class="fa fa-microphone"></i>Áudio</label>
+								<label for="cbAudio"><i class="fa fa-microphone"></i>Audio</label>
 								<select id="cbAudio" size="1" class="form-control">
-									<option value="">Nenhum</option>
-									<option value="true" selected="selected">Microfone Padrão</option>
+									<option value="">None</option>
+									<option value="true" selected="selected">Standard Microphone</option>
 								</select>
 							</div>
 						</div>
 						<div class="col-xs-6">
 							<div class="form-group">
-								<label for="cbVideo"><i class="fa fa-video-camera"></i>Vídeo</label>
+								<label for="cbVideo"><i class="fa fa-video-camera"></i>Video</label>
 								<select id="cbVideo" size="1" class="form-control">
-									<option value="" selected="selected">Tela (apenas para computadores)</option>
-									<option value="true">Câmera Padrão</option>
+									<option value="" selected="selected">Screen (only on computers)</option>
+									<option value="true">Standard Camera</option>
 								</select>
 							</div>
 						</div>
 					</div>
-					<button id="btnUpdateDevices" type="button" class="btn btn-outline btn-primary btn-xs btn-block" onclick="updateDevices(true);" style="display: none;"><i class="fa fa-refresh"></i>Atualizar Lista de Dispositivos</button>
+					<button id="btnUpdateDevices" type="button" class="btn btn-outline btn-primary btn-xs btn-block" onclick="updateDevices(true);" style="display: none;"><i class="fa fa-refresh"></i>Refresh Device List</button>
 					<hr />
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group no-margin-bottom col-sm-space-bottom">
-								<label id="labelDelay" for="txtDelay" data-toggle="tooltip" data-placement="top" title="Quantos segundos esperar antes de iniciar a gravação, depois que o botão for clicado."><i class="fa fa-clock-o"></i>Atraso <small>(segundos)</small></label>
+								<label id="labelDelay" for="txtDelay" data-toggle="tooltip" data-placement="top" title="How long to wait to start the recording, after the button is clicked."><i class="fa fa-clock-o"></i>Delay <small>(seconds)</small></label>
 								<input id="txtDelay" type="number" min="0" max="99" class="form-control" value="0" />
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group no-margin-bottom">
 								<label class="hidden-xs">&nbsp;</label>
-								<button type="button" class="btn btn-primary btn-block" onclick="startRecording(false);"><i class="fa fa-circle"></i>Gravar!</button>
+								<button type="button" class="btn btn-primary btn-block" onclick="startRecording(false);"><i class="fa fa-circle"></i>Record!</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div id="divStop" style="display: none;">
-					<p class="text-center">Tempo de gravação: <b id="lblRecordingTime">00:00</b></p>
-					<button type="button" class="btn btn-danger btn-block" onclick="stopRecording();"><i class="fa fa-stop"></i>Parar Gravação</button>
+					<p class="text-center">Recording time: <b id="lblRecordingTime">00:00</b></p>
+					<button type="button" class="btn btn-danger btn-block" onclick="stopRecording();"><i class="fa fa-stop"></i>Stop Recording</button>
 				</div>
 				<div id="divPip">
 					<video id="videoPip" controls autoplay tabindex="-1" style="height: 400px;"></video>
@@ -242,14 +242,14 @@
 					<h4 class="modal-title">Oops&hellip;</h4>
 				</div>
 				<div class="modal-body text-center">
-					<b>Iniciar uma nova gravação irá descartar a gravação atual.</b>
+					<b>Starting a new recording will discard the existing one.</b>
 					<br />
 					<br />
-					Deseja descartar a gravação atual?
+					Discard current recording?
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" onclick="startRecording(true)"><i class="fa fa-check"></i>Descartar</button>
-					<button type="button" class="btn btn-default btn-outline" data-dismiss="modal"><i class="fa fa-times"></i>Cancelar</button>
+					<button type="button" class="btn btn-primary" onclick="startRecording(true)"><i class="fa fa-check"></i>Discard</button>
+					<button type="button" class="btn btn-default btn-outline" data-dismiss="modal"><i class="fa fa-times"></i>Cancel</button>
 				</div>
 			</div>
 		</div>
@@ -260,11 +260,11 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Escolher Dispositivo</h4>
+					<h4 class="modal-title">Choose Device</h4>
 				</div>
 				<div class="modal-body" id="modalPipListBody"></div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default btn-outline" data-dismiss="modal"><i class="fa fa-times"></i>Cancelar</button>
+					<button type="button" class="btn btn-default btn-outline" data-dismiss="modal"><i class="fa fa-times"></i>Cancel</button>
 				</div>
 			</div>
 		</div>
@@ -288,8 +288,8 @@
 		//<![CDATA[
 		"use strict";
 
-		Notification.defaultWaitAlt = "Aguarde";
-		Notification.defaultWaitMessage = "Por favor, aguarde...";
+		Notification.defaultWaitAlt = "Wait";
+		Notification.defaultWaitMessage = "Please, wait...";
 
 		$("#btnPrivacy").tooltip();
 		$("#labelDelay").tooltip();
@@ -364,7 +364,7 @@
 			localStorage.setItem(cfgAudio, cbAudio.value);
 			localStorage.setItem(cfgVideo, cbVideo.value);
 
-			fileName = "Gravacao " + now.getFullYear() + "-" + format2(now.getMonth() + 1) + "-" + format2(now.getDate()) + " " + format2(now.getHours()) + format2(now.getMinutes());
+			fileName = "Recording " + now.getFullYear() + "-" + format2(now.getMonth() + 1) + "-" + format2(now.getDate()) + " " + format2(now.getHours()) + format2(now.getMinutes());
 
 			Notification.wait();
 
@@ -412,7 +412,7 @@
 							mixedStream = new MediaStream(tracks);
 						} catch (e) {
 							stopRecording();
-							Notification.error("Não foi possível combinar as capturas " + emoji.sad, true);
+							Notification.error("It was not possible to mix both streams " + emoji.sad, true);
 							return;
 						}
 					} else {
@@ -460,7 +460,7 @@
 
 					if (!mediaRecorder) {
 						stopRecording();
-						Notification.error("Não foi possível iniciar a gravação de tela por falta de Codecs compatíveis " + emoji.sad, true);
+						Notification.error("It was not possible to start recording the screen due to a lack of compatible Codecs " + emoji.sad, true);
 						return;
 					}
 
@@ -477,7 +477,7 @@
 						} catch (e) {
 							blobs = null;
 							stopRecording();
-							Notification.error("Não foi possível iniciar a gravação de tela: " + (e.message || e.toString()) + " " + emoji.sad, true);
+							Notification.error("It was not possible to start recording the screen: " + (e.message || e.toString()) + " " + emoji.sad, true);
 							return;
 						}
 
@@ -515,7 +515,7 @@
 					stopRecording();
 					var appearsMobile = false;
 					(function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) appearsMobile = true;})(navigator.userAgent||navigator.vendor||window.opera);
-					Notification.error((appearsMobile ? "A captura de tela não está disponível em dispositivos móveis " : "Não foi possível iniciar a captura de tela ") + emoji.sad, true);
+					Notification.error((appearsMobile ? "Screen capture is not available on mobile devices " : "It was not possible to start recording the screen ") + emoji.sad, true);
 				});
 			}
 
@@ -534,7 +534,7 @@
 				}).catch(function () {
 					waiting = false;
 					stopRecording();
-					Notification.error("Não foi possível iniciar a captura do áudio " + emoji.sad, true);
+					Notification.error("It was not possible to start recording the audio " + emoji.sad, true);
 				});
 			} else {
 				getVideoStream();
@@ -749,12 +749,12 @@
 					videoPip.play();
 				} catch (e) {
 					cleanupPip();
-					Notification.error("Não foi possível exibir sua câmera " + emoji.sad, true);
+					Notification.error("It was not possible to show your camera " + emoji.sad, true);
 				}
 			}).catch(function () {
 				waiting = false;
 				cleanupPip();
-				Notification.error("Não foi possível exibir sua câmera " + emoji.sad, true);
+				Notification.error("It was not possible to show your camera " + emoji.sad, true);
 			});
 		}
 
@@ -892,7 +892,7 @@
 			videoPip.onerror = function () {
 				waiting = false;
 				cleanupPip();
-				Notification.error("Ocorreu um erro durante a exibição de sua câmera " + emoji.sad, true);
+				Notification.error("An error occurred while trying to show your camera " + emoji.sad, true);
 			};
 		}
 
@@ -905,7 +905,7 @@
 			cbQuality.value = (localStorage.getItem(cfgQuality) || "12000000");
 
 		window.onbeforeunload = function () {
-			return (capturing ? "Abandonar a gravação?" : null);
+			return (capturing ? "Abandon the recording?" : null);
 		};
 
 		//]]>

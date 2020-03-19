@@ -15,7 +15,7 @@
 // whenever it detects a change in the source code of the
 // service worker).
 const CACHE_PREFIX = "smooh-cast-static-cache";
-const CACHE_VERSION = "-v1";
+const CACHE_VERSION = "-v3";
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 
 self.addEventListener("install", (event) => {
@@ -61,7 +61,7 @@ self.addEventListener("install", (event) => {
 			"/Scripts/bootstrap-1.0.0.min.js",
 			"/Scripts/jquery-1.0.1.min.js",
 			"/Scripts/main.js",
-			"/Styles/bootstrap-1.0.22.min.css",
+			"/Styles/bootstrap-1.0.24.min.css",
 			"/Styles/font-awesome-1.0.2.min.css"
 		];
 		const promises = new Array(files.length);
@@ -143,6 +143,15 @@ self.addEventListener("fetch", (event) => {
 			return response || cacheMatch(url, event.request);
 		}, () => {
 			return cacheMatch(url, event.request);
+		}));
+		return;
+	}
+
+	if (url.endsWith("/cast/?pt") || url.endsWith("/cast/?en")) {
+		event.respondWith(fetch(event.request).then((response) => {
+			return response || cacheMatch("/cast/", event.request);
+		}, () => {
+			return cacheMatch("/cast/", event.request);
 		}));
 		return;
 	}
