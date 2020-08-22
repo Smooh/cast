@@ -3,7 +3,7 @@
 // Copyright (c) 2020 Smooh
 //
 // https://github.com/Smooh/cast
-// https://smooh.tech/cast/
+// https://smooh.com.br/cast/
 //
 // Licensed under the MIT License.
 //
@@ -15,7 +15,7 @@
 // whenever it detects a change in the source code of the
 // service worker).
 const CACHE_PREFIX = "smooh-cast-static-cache";
-const CACHE_VERSION = "-v4";
+const CACHE_VERSION = "-v14";
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 
 self.addEventListener("install", (event) => {
@@ -50,18 +50,19 @@ self.addEventListener("install", (event) => {
 		// cache.addAll() to this.
 		const files = [
 			"/cast/",
-			"/cast/manifest.json",
 			"/android-icon-144x144.png",
 			"/favicon.ico",
 			"/favicon.png",
 			"/favicon-32x32.png",
 			"/Home/BannerBlur.jpg",
+			"/Home/Cast/manifest.json",
+			"/Home/Cast/ts-ebml.min.js",
 			"/Home/LogoIconeLetras100_.png",
 			"/Images/loading-grey-t.gif",
-			"/Scripts/bootstrap-1.0.0.min.js",
+			"/Scripts/bootstrap-1.0.1.min.js",
 			"/Scripts/jquery-1.0.1.min.js",
 			"/Scripts/main.js",
-			"/Styles/bootstrap-1.0.24.min.css",
+			"/Styles/bootstrap-1.0.27.min.css",
 			"/Styles/font-awesome-1.0.2.min.css"
 		];
 		const promises = new Array(files.length);
