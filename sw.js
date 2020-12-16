@@ -15,7 +15,7 @@
 // whenever it detects a change in the source code of the
 // service worker).
 const CACHE_PREFIX = "smooh-cast-static-cache";
-const CACHE_VERSION = "-v14";
+const CACHE_VERSION = "-v18";
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 
 self.addEventListener("install", (event) => {
@@ -54,7 +54,7 @@ self.addEventListener("install", (event) => {
 			"/favicon.ico",
 			"/favicon.png",
 			"/favicon-32x32.png",
-			"/Home/BannerBlur.jpg",
+			"/Home/ExternalBanner.jpg",
 			"/Home/Cast/manifest.json",
 			"/Home/Cast/ts-ebml.min.js",
 			"/Home/LogoIconeLetras100_.png",

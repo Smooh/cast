@@ -57,20 +57,30 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet" type="text/css" />
 	<link href="https://smooh.com.br/Styles/font-awesome-1.0.2.min.css" rel="stylesheet" type="text/css" />
-	<link href="https://smooh.com.br/Styles/bootstrap-1.0.27.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://smooh.com.br/Styles/bootstrap-1.0.29.min.css" rel="stylesheet" type="text/css" />
 	<style type="text/css">
 		html {
-			min-height: 100%;
-			height: 100%;
-		}
-
-		body {
-			background-image: url(https://smooh.com.br/Home/BannerBlur.jpg);
-			background-size: cover;
+			background-image: url(https://smooh.com.br/Home/ExternalBanner.jpg);
 			background-repeat: no-repeat;
+			background-size: cover;
 			background-position: center;
 			background-attachment: fixed;
 			min-height: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		body {
+			min-height: 100%;
+			height: 100%;
+			overflow: hidden;
+			background: transparent;
+		}
+
+		.scroll-container {
+			height: 100%;
+			min-height: 100%;
+			overflow: auto;
 		}
 
 		main {
@@ -147,94 +157,96 @@
 </head>
 <body>
 
-	<main>
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<h1 class="text-right">
-					<a id="aLogo" href="https://smooh.com.br" target="_blank"><img id="imgLogo" alt="Smooh" src="https://smooh.com.br/Home/LogoIconeLetras100_.png" /></a>
-					<a id="aGit" href="https://github.com/Smooh/cast" target="_blank"><i class="fa custom-icon"></i>GitHub</a>
-					Cast <small>(Beta)</small>
-					<span class="sr-only">Ferramenta online gratuita de gravação de tela.</span>
-					<span class="sr-only">Mostre sua câmera no canto da tela como picture-in-picture (pip).</span>
-				</h1>
-			</div>
-		</div>
-
-		<div id="divDownload" class="panel panel-default" style="display: none;">
-			<div class="panel-body">
-				<div class="form-group">
-					<label for="txtDownload">Nome da Gravação</label>
-					<input id="txtDownload" type="text" class="form-control" spellcheck="false" placeholder="Opcional" />
+	<div class="scroll-container">
+		<main>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h1 class="text-right">
+						<a id="aLogo" href="https://smooh.com.br" target="_blank"><img id="imgLogo" alt="Smooh" src="https://smooh.com.br/Home/LogoIconeLetras100_.png" /></a>
+						<a id="aGit" href="https://github.com/Smooh/cast" target="_blank"><i class="fa custom-icon"></i>GitHub</a>
+						Cast <small>(Beta)</small>
+						<span class="sr-only">Ferramenta online gratuita de gravação de tela.</span>
+						<span class="sr-only">Mostre sua câmera no canto da tela como picture-in-picture (pip).</span>
+					</h1>
 				</div>
-				<a id="aDownload" class="btn btn-outline btn-primary btn-block"><i class="fa fa-download"></i>Baixar Gravação</a>
 			</div>
-		</div>
 
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div id="divBar" class="clearfix">
-					<button id="btnPip" type="button" class="btn btn-xs btn-outline btn-primary" onclick="togglePip();" style="display: none;"><i id="iconPip" class="fa fa-square-o"></i>Exibir minha câmera</button>
-					<button id="btnPrivacy" type="button" class="btn btn-xs btn-outline btn-default" data-toggle="tooltip" data-placement="left" title="Sua privacidade é muito importante para nós! As informações de áudio e vídeo gravadas aqui ficam somente em seu dispositivo, e jamais são enviadas para nós!"><i class="fa fa-lock"></i>Privacidade</button>
+			<div id="divDownload" class="panel panel-default" style="display: none;">
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="txtDownload">Nome da Gravação</label>
+						<input id="txtDownload" type="text" class="form-control" spellcheck="false" placeholder="Opcional" />
+					</div>
+					<a id="aDownload" class="btn btn-outline btn-primary btn-block"><i class="fa fa-download"></i>Baixar Gravação</a>
 				</div>
-				<hr />
-				<div id="divStart">
-					<div class="row">
-						<div class="col-sm-6">
-							<h2 class="no-margin-top col-xs-space-bottom">Passo 1<br /><small><i>Escolha os dispositivos</i></small></h2>
-							<div class="form-group">
-								<label for="cbQuality"><i class="fa fa-th"></i>Qualidade da Gravação</label>
-								<select id="cbQuality" size="1" class="form-control">
-									<option value="20000000">Alta</option>
-									<option value="12000000" selected="selected">Boa</option>
-									<option value="500000">Baixa</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="cbAudio"><i class="fa fa-microphone"></i>Captura de Áudio</label>
-								<select id="cbAudio" size="1" class="form-control">
-									<option value="">Nenhuma</option>
-									<option value="true" selected="selected">Microfone Padrão</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="cbVideo"><i class="fa fa-video-camera"></i>Captura de Vídeo</label>
-								<select id="cbVideo" size="1" class="form-control">
-									<option value="" selected="selected">Tela (apenas para computadores)</option>
-									<option value="true">Câmera Padrão</option>
-								</select>
-							</div>
-							<button id="btnUpdateDevices" type="button" class="btn btn-outline btn-primary btn-xs btn-block" onclick="updateDevices(true);" style="display: none;"><i class="fa fa-refresh"></i>Atualizar Lista de Dispositivos</button>
-							<hr class="visible-xs" />
-						</div>
-						<div class="col-sm-6">
-							<h2 class="no-margin-top col-xs-space-bottom">Passo 2<br /><small><i>Defina o atraso e grave!</i></small></h2>
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group no-margin-bottom col-sm-space-bottom">
-										<label id="labelDelay" for="txtDelay" data-toggle="tooltip" data-placement="top" title="Quantos segundos esperar antes de iniciar a gravação, depois que o botão for clicado."><i class="fa fa-clock-o"></i>Atraso <small>(segundos)</small> <i class="fa fa-question-circle fa-nomargin"></i></label>
-										<input id="txtDelay" type="number" min="0" max="99" class="form-control" value="0" />
-									</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div id="divBar" class="clearfix">
+						<button id="btnPip" type="button" class="btn btn-xs btn-outline btn-primary" onclick="togglePip();" style="display: none;"><i id="iconPip" class="fa fa-square-o"></i>Exibir minha câmera</button>
+						<button id="btnPrivacy" type="button" class="btn btn-xs btn-outline btn-default" data-toggle="tooltip" data-placement="left" title="Sua privacidade é muito importante para nós! As informações de áudio e vídeo gravadas aqui ficam somente em seu dispositivo, e jamais são enviadas para nós!"><i class="fa fa-lock"></i>Privacidade</button>
+					</div>
+					<hr />
+					<div id="divStart">
+						<div class="row">
+							<div class="col-sm-6">
+								<h2 class="no-margin-top col-xs-space-bottom">Passo 1<br /><small><i>Escolha os dispositivos</i></small></h2>
+								<div class="form-group">
+									<label for="cbQuality"><i class="fa fa-th"></i>Qualidade da Gravação</label>
+									<select id="cbQuality" size="1" class="form-control">
+										<option value="20000000">Alta</option>
+										<option value="12000000" selected="selected">Boa</option>
+										<option value="500000">Baixa</option>
+									</select>
 								</div>
-								<div class="col-sm-6">
-									<div class="form-group no-margin-bottom">
-										<label class="hidden-xs">&nbsp;</label>
-										<button type="button" class="btn btn-primary btn-block" onclick="startRecording(false);"><i class="fa fa-circle"></i>Gravar!</button>
+								<div class="form-group">
+									<label for="cbAudio"><i class="fa fa-microphone"></i>Captura de Áudio</label>
+									<select id="cbAudio" size="1" class="form-control">
+										<option value="">Nenhuma</option>
+										<option value="true" selected="selected">Microfone Padrão</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="cbVideo"><i class="fa fa-video-camera"></i>Captura de Vídeo</label>
+									<select id="cbVideo" size="1" class="form-control">
+										<option value="" selected="selected">Tela (apenas para computadores)</option>
+										<option value="true">Câmera Padrão</option>
+									</select>
+								</div>
+								<button id="btnUpdateDevices" type="button" class="btn btn-outline btn-primary btn-xs btn-block" onclick="updateDevices(true);" style="display: none;"><i class="fa fa-refresh"></i>Atualizar Lista de Dispositivos</button>
+								<hr class="visible-xs" />
+							</div>
+							<div class="col-sm-6">
+								<h2 class="no-margin-top col-xs-space-bottom">Passo 2<br /><small><i>Defina o atraso e grave!</i></small></h2>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group no-margin-bottom col-sm-space-bottom">
+											<label id="labelDelay" for="txtDelay" data-toggle="tooltip" data-placement="top" title="Quantos segundos esperar antes de iniciar a gravação, depois que o botão for clicado."><i class="fa fa-clock-o"></i>Atraso <small>(segundos)</small> <i class="fa fa-question-circle fa-nomargin"></i></label>
+											<input id="txtDelay" type="number" min="0" max="99" class="form-control" value="0" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group no-margin-bottom">
+											<label class="hidden-xs">&nbsp;</label>
+											<button type="button" class="btn btn-primary btn-block" onclick="startRecording(false);"><i class="fa fa-circle"></i>Gravar!</button>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div id="divStop" style="display: none;">
-					<p class="text-center">Tempo de gravação: <b id="lblRecordingTime">00:00</b></p>
-					<button type="button" class="btn btn-danger btn-block" onclick="stopRecording();"><i class="fa fa-stop"></i>Parar Gravação</button>
-				</div>
-				<div id="divPip">
-					<video id="videoPip" controls autoplay tabindex="-1" style="height: 400px;"></video>
+					<div id="divStop" style="display: none;">
+						<p class="text-center">Tempo de gravação: <b id="lblRecordingTime">00:00</b></p>
+						<button type="button" class="btn btn-danger btn-block" onclick="stopRecording();"><i class="fa fa-stop"></i>Parar Gravação</button>
+					</div>
+					<div id="divPip">
+						<video id="videoPip" controls autoplay tabindex="-1" style="height: 400px;"></video>
+					</div>
 				</div>
 			</div>
-		</div>
-	</main>
+		</main>
+	</div>
 
 	<div id="modalConfirmDiscard" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-sm" role="document">
@@ -273,7 +285,7 @@
 	</div>
 
 	<script type="text/javascript" charset="utf-8" src="https://smooh.com.br/Scripts/jquery-1.0.1.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="https://smooh.com.br/Scripts/bootstrap-1.0.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="https://smooh.com.br/Scripts/bootstrap-3.4.1.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="https://smooh.com.br/Home/Cast/ts-ebml.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="https://smooh.com.br/Scripts/main.js"></script>
 
